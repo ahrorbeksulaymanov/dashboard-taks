@@ -1,6 +1,6 @@
 
 import React from "react";
-import MyGrid from "../components/BlockItem";
+import MyGrid from "../components/GridItems";
 
 const Dashboard: React.FC = () => {
   return (

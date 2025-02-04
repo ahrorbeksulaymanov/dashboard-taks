@@ -20,7 +20,10 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, icon }) => {
         <div className="flex gap-4 items-center">
             <IoNotificationsOutline className="text-[24px] cursor-pointer text-black" />
             <BiMessageRoundedDots className="text-[24px] cursor-pointer text-black" />
-            <HiMiniUserCircle className="text-[40px] rounded-full cursor-pointer text-black" />
+            <div className="flex items-center bg-gray-100 hover:bg-gray-200 cursor-pointer rounded-full p-0.5 pr-2">
+              <HiMiniUserCircle className="text-[40px] text-black" />
+              <span className="text-black select-none">Ahror</span>
+            </div>
         </div>
     </header>
   );

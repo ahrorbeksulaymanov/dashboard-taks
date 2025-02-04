@@ -32,3 +32,23 @@ button:focus,
 button:focus-vsiible {
   outline: none;
 }
+
+@layer utilities {
+  /* Yashil fonli skrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px; /* Skrollbar eni */
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #1a1a2e; /* Orqa fon rangi */
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #555555; /* Skrollbar rangi */
+    border-radius: 2px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    opacity: 0.3; /* Hover effekti */
+  }
+}
