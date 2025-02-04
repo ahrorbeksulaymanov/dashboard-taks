@@ -11,7 +11,7 @@ function App() {
         <Layout>
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/settings" element={<Dashboard />} />
+              <Route path="/dashboard-taks" element={<Dashboard />} />
             </Routes>
         </Layout>
       </SidebarProvider>

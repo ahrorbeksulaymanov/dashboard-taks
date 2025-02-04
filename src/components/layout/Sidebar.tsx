@@ -35,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
             <Link to={"/"} className="flex items-center gap-2 p-2"><CiGrid42 className="text-[18px]" />Dashboard</Link>
           </li>
           <li className="hover:bg-[#29293f] cursor-pointer rounded-sm mb-3">
-            <Link to={"/settings"} className="flex items-center gap-2 p-2"><CiSun className="text-[22px]" />Settings</Link>
+            <Link to={"/dashboard-taks"} className="flex items-center gap-2 p-2"><CiSun className="text-[22px]" />Settings</Link>
           </li>
           {
             sidebarItems?.map(menu => (

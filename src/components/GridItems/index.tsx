@@ -8,7 +8,6 @@ import GridControls from "../GridControls";
 import ImageUploader from "../ImageUploader";
 import { IoMdClose } from "react-icons/io";
 import GridInput from "../GridInput";
-import useWindowSize from "../../hooks/useWindowSize";
 
 const ReactGridLayout = WidthProvider(RGL) as unknown as React.FC<RGL.ReactGridLayoutProps>;
 const ItemType = { BOX: "box" };
@@ -16,7 +15,7 @@ const ItemType = { BOX: "box" };
 const MyGrid = () => {
 
   const { removeSidebarItem, addSidebarItem, isEditableGrid, sidebarItems } = useContext(SidebarContext)!;
-  const { width } = useWindowSize()
+
   const [layout, setLayout] = useState<Layout[]>([
     { i: "1", x: 0, y: 0, w: 4, h: 4 },
     { i: "2", x: 4, y: 0, w: 4, h: 4 },
@@ -53,8 +52,6 @@ const MyGrid = () => {
   
 
   const removeItem = (id: string, type: string) => {
-
-    console.log("dele item", id, type);
     
     if (!isEditableGrid) return; // Agar tahrirlash rejimi o'chirilgan bo'lsa, element o'chmaydi
 
@@ -64,7 +61,6 @@ const MyGrid = () => {
   };
 
   const handleLayoutChange = (newLayout: Layout[]) => {
-    console.log("🛠 Layout o'zgardi:", newLayout);
     setLayout(newLayout);
   };
   
@@ -74,8 +70,7 @@ const MyGrid = () => {
         <ReactGridLayout
           className="layout min-h-[50vh]"
           layout={layout}
-          cols={width > 1400 ? 12 : 12 }
-          // cols={width > 1400 ? 12 : width > 1000 ? 18 : width > 900 ? 20 : width > 700 ? 24 : 48 }
+          cols={12}
           rowHeight={30}
           width={800}
           isResizable={isEditableGrid}
@@ -85,26 +80,18 @@ const MyGrid = () => {
           {items.map((item) => (
             <div
               key={item.id}
-              className={`relative bg-white border flex flex-col items-center justify-center text-lg font-bold p-3 rounded-md ${
+              className={`relative z-10 bg-white border flex flex-col items-center justify-center text-lg font-bold p-3 rounded-md ${
                 isEditableGrid ? "cursor-move border-dashed border-gray-800" : "cursor-auto border-solid border-gray-300"
               }`}
             >
               {/* O'chirish tugmasi */}
               {isEditableGrid && (
-                <div onClick={() => {
-                  console.log("clicked div");                  
-                }}>
-                  <button
-                    onClick={() => {
-                      console.log("clicked");
-                      removeItem(item.id, item.type)
-                      
-                    }}
-                    className="absolute top-2 right-2 z-[10000] text-white p-1 rounded-sm hover:bg-blue-50 cursor-pointer"
-                  >
-                    <IoMdClose className="text-black" />
-                  </button>
-                </div>
+                <button
+                  onClick={() => removeItem(item.id, item.type)}
+                  className="absolute top-2 right-2 z-20 text-white p-1 rounded-sm hover:bg-blue-50 cursor-pointer"
+                >
+                  <IoMdClose className="text-black" />
+                </button>
               )}
 
               {/* Rasm yoki matn */}

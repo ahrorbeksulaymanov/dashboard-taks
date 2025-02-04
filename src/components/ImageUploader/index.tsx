@@ -52,7 +52,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ isEditableGrid, item, set
       {isEditableGrid && (
         <button
           onClick={() => openFileUpload(item.id)}
-          className="absolute bottom-5 px-3 py-1 text-gray-400  font-normal text-[14px] border border-gray-400 rounded-md cursor-pointer bg-white hover:bg-blue-50"
+          className="absolute z-20 bottom-5 px-3 py-1 text-gray-400  font-normal text-[14px] border border-gray-400 rounded-md cursor-pointer bg-white hover:bg-blue-50"
         >
           📤 Rasm Yuklash
         </button>
