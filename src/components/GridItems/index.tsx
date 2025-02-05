@@ -63,7 +63,6 @@ const MyGrid = () => {
   const handleLayoutChange = (newLayout: Layout[]) => {
     setLayout(newLayout);
   };
-  
 
   return (
       <div ref={drop} className="flex-1">

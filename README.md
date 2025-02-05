@@ -1,50 +1,109 @@
-# React + TypeScript + Vite
+# 🏗️ Dashboard Tasks - React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bu loyiha **React** va **Vite** yordamida yaratilgan **Dashboard Task Management** ilovasidir. U **Tailwind CSS** bilan stillangan va **GitHub Pages** orqali deploy qilingan.
 
-Currently, two official plugins are available:
+![GitHub Pages Status](https://img.shields.io/badge/GitHub-Pages-blue?logo=github)
+![Vite](https://img.shields.io/badge/Vite-React-blueviolet?logo=vite)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-blue?logo=tailwindcss)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Loyihani O‘rnatish
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```sh
+# 1. Loyihani klon qilish
+git clone https://github.com/ahrorbeksulaymanov/dashboard-taks.git
 
-- Configure the top-level `parserOptions` property like this:
+# 2. Loyihaga kiring
+cd dashboard-taks
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
+# 3. Bog‘liqliklarni (`node_modules`) o‘rnatish
+npm install
+```
+
+---
+
+## 🛠 Loyihani Ishga Tushirish
+
+```sh
+# Development rejimda (`localhost`) ishga tushirish
+npm run dev
+```
+📌 **Default port:** [`http://localhost:5173/`](http://localhost:5173/)
+
+```sh
+# Production build yaratish
+npm run build
+```
+📌 **Barcha tayyor fayllar `dist/` papkasiga yaratiladi.**
+
+---
+
+## 📦 GitHub Pages-ga Deploy Qilish
+
+```sh
+# 1. GitHub repositoryga masofaviy (`remote`) ulanish
+git remote add origin https://github.com/ahrorbeksulaymanov/dashboard-taks.git
+
+# 2. Loyihani GitHub Pages uchun tayyorlash
+npm run build
+
+# 3. GitHub Pages-ga yuklash
+npm run deploy
+```
+📌 Bu buyruq `gh-pages` branchga yuklaydi.
+
+GitHub repository-da **Settings → Pages** ga kiring.  
+**Source** qismida **`gh-pages` branch** ni tanlang va **"Save"** bosing.
+
+🔗 **Sayt manzili**:  
+[`https://ahrorbeksulaymanov.github.io/dashboard-taks/`](https://ahrorbeksulaymanov.github.io/dashboard-taks/)
+
+---
+
+## 🛠 Texnologiyalar
+
+| Texnologiya      | Tavsif |
+|------------------|--------|
+| **React**       | UI yaratish uchun |
+| **Vite**        | Yengil va tezkor frontend bundler |
+| **Tailwind CSS**| Stil va dizayn |
+| **React DnD**   | Drag-and-Drop qo‘llab-quvvatlashi |
+| **React Grid Layout** | Drag va resize uchun grid tizimi |
+| **GitHub Pages** | Deploy qilish uchun |
+
+---
+
+## 📌 Muhim Sozlamalar
+
+Agar deploy qilganingizda **404 xatosi yoki fayllar yuklanmasa**, `vite.config.ts` faylini tekshiring va **`base` to‘g‘ri yozilganligiga ishonch hosil qiling**:
+
+```ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  base: './', // ✅ GitHub Pages uchun to‘g‘ri sozlama
 })
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+✅ **Agar deploy ishlamasa**, quyidagi buyruqlar bilan qayta yuklang:
+```sh
+rm -rf dist
+npm run build
+npm run deploy
 ```
+
+---
+
+## 📞 Aloqa
+
+Agar sizda savollar bo‘lsa yoki muammolarga duch kelsangiz, quyidagi kanallar orqali bog‘laning:
+
+📧 **Email:** `ahrorsulaymanov2@gmail.com`  
+🐙 **GitHub:** [`ahrorbeksulaymanov`](https://github.com/ahrorbeksulaymanov)  
+🌎 **Website:** [`https://ahrorbeksulaymanov.github.io/my-portfolio`](https://ahrorbeksulaymanov.github.io/my-portfolio)
+
+🚀 **Dashboard Tasks loyihasiga qo‘shilganingiz uchun rahmat!** 😊
